@@ -51,6 +51,4 @@ sender auto async_reverse(scheduler auto sch,
                             std::swap(get<0>(t+zb_start), get<1>(t+zb_end));
                                                                           
     }) 
-
-
 }
