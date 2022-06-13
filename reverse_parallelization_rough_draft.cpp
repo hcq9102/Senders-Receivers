@@ -48,7 +48,6 @@ sender auto async_reverse(scheduler auto sch,
         | bulk(chunk_count,  [=](auto i, reference t) {
                             zb_start = i*chunk_size;
                             zb_end = std::min(input.size(), (i+1)*chunk_size)  
-                            std::swap(get<0>(t+zb_start), get<1>(t+zb_end));
-                                                                          
+                            std::swap(get<0>(t+zb_start), get<1>(t+zb_end));                                                                      
     }) 
 }
