@@ -1,0 +1,3 @@
+/work/chuanqiu/sender/test/CMakeFiles/reverse_s.dir
+/work/chuanqiu/sender/test/CMakeFiles/edit_cache.dir
+/work/chuanqiu/sender/test/CMakeFiles/rebuild_cache.dir
