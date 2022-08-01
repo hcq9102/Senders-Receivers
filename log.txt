@@ -1,0 +1,31 @@
+2022/Aug/01
+cdw/sender
+
+///////////////////////////////build HPX//////////////////////////////////////////////////////////
+On compute node medusa:
+
+1. chuanqiu@rostam1:/work/chuanqiu/sender$ srun -p medusa -N 1 --pty /bin/bash -l
+2. mkdir compile
+3. chuanqiu@medusa01:/work/chuanqiu/sender/compile$ git clone https://github.com/STEllAR-GROUP/hpx.git
+4. cd hpx
+5. chuanqiu@medusa01:/work/chuanqiu/sender/compile/hpx$ mkdir build && cd build
+
+// check module loaded: module av
+
+// loaded module has yellow highlight(L)
+
+// chuanqiu@medusa01:/work/chuanqiu/sender/compile/hpx/build$ module savelist
+Named collection list :
+  1) boost  2) cmake323  3) gcc12  4) git236  5) hwloc271  6) openmpi414
+  
+6. chuanqiu@medusa01:/work/chuanqiu/sender/compile/hpx/build$ cmake -DCMAKE_BUILD_TYPE=Release -DHPX_WITH_PARCELPORT_MPI=ON -DHPX_WITH_THREAD_IDLE_RATES=ON -DCMAKE_INSTALL_PREFIX=/work/chuanqiu/sender/hpx -DHPX_WITH_FETCH_ASIO=ON ..
+   // HPX will be installed to /work/chuanqiu/sender/hpx
+   
+7. chuanqiu@medusa01:/work/chuanqiu/sender/compile/hpx/build$  make -j
+8. chuanqiu@medusa01:/work/chuanqiu/sender/compile/hpx/build$  make install
+
+
+///////////////////////////////do test//////////////////////////////////////////////////////////
+
+1. chuanqiu@medusa01:/work/chuanqiu/sender/test$ cmake -DCMAKE_BUILD_TYPE=Release -DHPX_DIR=/work/chuanqiu/sender/hpx/lib64/cmake/HPX -DHPX_IGNORE_COMPILER_COMPATIBILITY=on .
+2. chuanqiu@medusa01:/work/chuanqiu/sender/test$ make 
