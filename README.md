@@ -11,4 +11,6 @@
         
     refer the cmakelist.txt file :
         add_hpx_unit_test("modules.execution" ${test} ${${test}_PARAMETERS}), so add modules.execution to the command line, works
+        
+ 3. hpx build error(due to the upate of rostam) and fixed : https://gist.github.com/hcq9102/2fe1b819d29d79fc4c925633f1819c2d
     
