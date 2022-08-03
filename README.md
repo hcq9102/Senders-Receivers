@@ -7,6 +7,8 @@
 
 2. sync_wait_with_variant test check : get the right command line
 
+        make tests
+        
         ctest -R tests.unit.modules.execution.algorithm_sync_wait_with_variant
         
     refer the cmakelist.txt file :
